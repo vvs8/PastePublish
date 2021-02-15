@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <style>
+    nav {
+      background-color: lightblue;
+    }
+
+    li {
+      display: inline;
+    }
+    
+    article {
+      margin: 50px 100px 50px 100px;
+    }
+    
+    p {
+      font-family: verdana;
+      font-size: 20px;
+    }
+
+    a:hover {
+      color: hotpink;
+    }
+
+    a:active {
+      color: blue;
+    }
+
+    .BBB {
+      opacity: 0.5
+    }
+    
+    .BBB:hover {
+      opacity: 1.0;
+    }
+  
+  </style>
+</head>
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body style="background-color: #F8F8FF">
+
+  <div class="w3-top"  id = "navbar" style = "transition: top 0.3s">
+  <div class="w3-bar w3-white BBB"  >
+    <a href="/" class="w3-bar-item w3-button w3-mobile w3-black">Home</a>
+    <a href="/about" class="w3-bar-item w3-button w3-mobile">About</a>
+    <a href="/posts/new" class="w3-bar-item w3-button w3-mobile">New Post</a>
+    <div class="w3-dropdown-hover w3-mobile">
+      <button class="w3-button">User <i class="fa fa-caret-down"></i></button>
+      <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
+        @if(!auth)
+            <li class="w3-bar-item w3-button w3-mobile">
+              <a class="nav-link" href="/auth/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="w3-bar-item w3-button w3-mobile" href="/auth/register">Register</a>
+            </li>
+          @else
+            <li class="w3-bar-item w3-button w3-mobile">
+              <a class="nav-link" href="/auth/logout">Logout</a>
+            </li>
+        @endif
+        
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  
+ 
+  @!section('content')
+ 
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item" >
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted" style = "text-align: center" >Copyright &copy; PastePublish 2021</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+ 
+<script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-50px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+</script>
+  
+</body>
+
+</html>
+

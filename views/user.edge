@@ -1,0 +1,37 @@
+@layout('layouts.app')
+ 
+@section('content')
+<head>
+<style>
+    .container { 
+        margin: 40px; 
+    } 
+</style>
+</head>
+
+<div style = "margin: 40px;">
+    <h2>Author: {{username}}</h2>
+</div>
+<div class="container">
+    <div class="row">
+      
+      <div class="column">
+        @each(post in posts)
+          <div class="post-preview" >
+            <a href="/post/{{ post._id }}">
+              <h2 class="post-title">
+                {{ post.title }}
+              </h2>
+            </a>
+            <p class="post-meta"> {{ post.createdAt.toDateString() }}
+            </p>
+          </div>
+          <hr>
+        
+          @endeach
+          
+
+          
+
+
+@endsection
